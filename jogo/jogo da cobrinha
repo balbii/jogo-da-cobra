@@ -33,7 +33,21 @@ maça.fill((255,255,255))
 
 
 my_direction = a
-if event.type == KEYDOWN:
+
+clock = pygame.time.Clock()
+
+font = pygame.font.Font('freesansbold.ttf', 50)
+score = 0
+
+game_over = False
+while not game_over:
+    clock.tick(35)
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            exit()
+            
+        if event.type == KEYDOWN:
             if event.key == K_w and my_direction != s:
                 my_direction = w
             if event.key == K_s and my_direction != w:
@@ -103,17 +117,3 @@ while True:
             if event.type == QUIT:
                 pygame.quit()
                 exit()
-
-
-clock = pygame.time.Clock()
-
-font = pygame.font.Font('freesansbold.ttf', 50)
-score = 0
-
-game_over = False
-while not game_over:
-    clock.tick(35)
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            exit()
